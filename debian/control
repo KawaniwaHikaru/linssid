@@ -1,0 +1,22 @@
+Source: linssid
+Section: devel
+Priority: optional
+Maintainer: Warren Severin <wseverin@warsev.com>
+Build-Depends: debhelper (>= 8.0.0), qt5-qmake, qt5-default, qtchooser,
+ cdbs, libboost-regex-dev, libqt5svg5-dev, libqt5opengl5-dev
+Standards-Version: 3.9.4
+Homepage: http://sourceforge.net/projects/linssid
+
+Package: linssid
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, wireless-tools, iw
+Recommends: sudo
+Description: Graphical wireless scanner
+ .
+ LinSSID displays locally receivable 802.11 wireless attach points
+ and ad hoc networks. A table is displayed with various parameters
+ such as MAC address, channel, and signal strength. Graphs are also
+ displayed with signal strength by channel and signal strength over time.
+ LinSSID is graphically and functionally similar to Inssider (Microsoft™
+ Windows®). It is written entirely in C++ using boost, QT5, and the
+ Qwt package (>= 6.1).
