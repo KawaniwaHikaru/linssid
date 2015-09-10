@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>759</width>
-    <height>561</height>
+    <width>518</width>
+    <height>494</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -297,6 +297,9 @@
      </widget>
     </item>
     <item>
+     <widget class="QwtPlot" name="timePlot"/>
+    </item>
+    <item>
      <widget class="QSplitter" name="splitter">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -327,95 +330,34 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QTabWidget" name="mainTabWgt">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>150</height>
-        </size>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="currentIndex">
-        <number>1</number>
-       </property>
-       <widget class="QWidget" name="timePlotTab">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="toolTip">
-         <string>Signal strength over time</string>
-        </property>
-        <attribute name="title">
-         <string>Time Graph</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <widget class="QwtPlot" name="timePlot"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="chan24Tab">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="toolTip">
-         <string>Signal strength by channel</string>
-        </property>
-        <attribute name="title">
-         <string>2.4 GHz Channels</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QwtPlot" name="chan24Plot">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>100</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="chan5Tab">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="toolTip">
-         <string>Signal strength by channel</string>
-        </property>
-        <attribute name="title">
-         <string>5 GHz Channels</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QwtPlot" name="chan5Plot"/>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QwtPlot" name="chan24Plot">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QwtPlot" name="chan5Plot"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -426,8 +368,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>759</width>
-     <height>23</height>
+     <width>518</width>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

@@ -26,10 +26,10 @@
 #include <qwt_plot_grid.h>
 #include <qwt_scale_draw.h>
 #include <sys/stat.h>
+#include <boost/regex.hpp>
 #include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
-#include <boost/regex.hpp>
 #include "Custom.h"
 #include "MainForm.h"
 #include "Getter.h"
@@ -544,7 +544,7 @@ void MainForm::writePrefsFile() {
             << this->height() << endl;
     prefs << "mainsplit " << MainForm::mainFormWidget.splitter->sizes().value(0) << " "
             << MainForm::mainFormWidget.splitter->sizes().value(1) << endl;
-    prefs << "plottab " << MainForm::mainFormWidget.mainTabWgt->currentIndex() << endl;
+//    prefs << "plottab " << MainForm::mainFormWidget.mainTabWgt->currentIndex() << endl;
     prefs << "naptime " << MainForm::mainFormWidget.napTimeSlider->value() << endl;
     prefs << "plotprefs "
             << int(MainForm::mainFormWidget.timePlot->axisScaleDiv(QwtPlot::yLeft).lowerBound()) << " "
@@ -671,7 +671,7 @@ void MainForm::readPrefsFile() {
             }
         } else if (tag == "plottab") {
             lineParse >> tab;
-            MainForm::mainFormWidget.mainTabWgt->setCurrentIndex(tab);
+//            MainForm::mainFormWidget.mainTabWgt->setCurrentIndex(tab);
         } else if (tag == "mainsplit") {
             lineParse >> splitHeight0 >> splitHeight1;
             QList<int> bullshit; // Nokia didn't have to rewrite the entire c++ syntax
@@ -1252,11 +1252,12 @@ void MainForm::doLogData() {
     }
     // now write data
     char nowStr[64], firstStr[64], lastStr[64];
-    std::strftime(nowStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::now));
+//    std::strftime(nowStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::now));
     for (int tbi = 0; tbi <= MainForm::maxTableIndex; tbi++) {
-        std::strftime(firstStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::cellDataRay[tbi].firstSeen));
-        std::strftime(lastStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::cellDataRay[tbi].lastSeen));
-        MainForm::logDataStream << nowStr << "\t"
+//        std::strftime(firstStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::cellDataRay[tbi].firstSeen));
+//        std::strftime(lastStr, 100, "%Y/%m/%d.%H:%M:%S", std::localtime(&MainForm::cellDataRay[tbi].lastSeen));
+        MainForm::logDataStream 
+//                << nowStr << "\t"
                 << "\"" << MainForm::cellDataRay[tbi].essid << "\"\t"
                 << MainForm::cellDataRay[tbi].macAddr << "\t"
                 << MainForm::cellDataRay[tbi].channel << "\t"
@@ -1272,8 +1273,8 @@ void MainForm::doLogData() {
                 << MainForm::cellDataRay[tbi].minSignal << "\t"
                 << MainForm::cellDataRay[tbi].maxSignal << "\t"
                 << MainForm::cellDataRay[tbi].mbps << "\t"
-                << firstStr << "\t"
-                << lastStr << "\t"
+//                << firstStr << "\t"
+//                << lastStr << "\t"
                 << "\"" << MainForm::cellDataRay[tbi].vendor << "\"\n";
     }
 }
